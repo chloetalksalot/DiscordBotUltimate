@@ -77,6 +77,33 @@ async def on_message(message):
             user_insult = user_insult.replace("USER", target_name)
             # send the payload bois
             await channel_in.send(user_insult)
+        if message.content.startswith("!insultthem"):
+            # grab targets name
+            target_name = str(message.content)
+            # remove command from name
+            target_name = target_name.replace("!insultthem ", "")
+            # replace USER with target
+            user_insult = user_insult.replace("USER", target_name)
+            # send the payload bois
+            await channel_in.send(user_insult)
+        if message.content.startswith("!InsultThem"):
+            # grab targets name
+            target_name = str(message.content)
+            # remove command from name
+            target_name = target_name.replace("!InsultThem ", "")
+            # replace USER with target
+            user_insult = user_insult.replace("USER", target_name)
+            # send the payload bois
+            await channel_in.send(user_insult)
+        if message.content.startswith("!Insultthem"):
+            # grab targets name
+            target_name = str(message.content)
+            # remove command from name
+            target_name = target_name.replace("!Insultthem ", "")
+            # replace USER with target
+            user_insult = user_insult.replace("USER", target_name)
+            # send the payload bois
+            await channel_in.send(user_insult)
         else:
             # grab user's name
             user_name = str(message.author)
