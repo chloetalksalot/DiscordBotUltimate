@@ -80,6 +80,8 @@ async def on_message(message):
         else:
             # grab user's name
             user_name = str(message.author)
+            # drop the tag
+            user_name = user_name[:-5]
             # replace USER with username in insult
             user_insult = user_insult.replace("USER", user_name)
             # send the payload bois
