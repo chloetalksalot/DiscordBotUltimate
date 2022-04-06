@@ -37,7 +37,7 @@ print("secret loaded!")
 client = discord.Client()
 
 # insult list
-insults = ["USER has a goldfish brain!", "USER sucks!"]
+insults = ["USER has a goldfish brain!", "USER sucks!", "USER has a tiny pp.", "USER is short.", "USER sucks almost as much as Chavez.", "If I were USER, I'd have depression too."]
 
 # client events
 # verify connection
