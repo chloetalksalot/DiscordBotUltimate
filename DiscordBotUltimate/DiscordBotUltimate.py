@@ -37,7 +37,7 @@ print("secret loaded!")
 client = discord.Client()
 
 # insult list
-insults = ["USER has a goldfish brain!", "USER sucks!", "USER has a tiny pp.", "USER is short.", "USER sucks almost as much as Chavez.", "If I were USER, I'd have depression too.", "USER is an airhead bro.", "USER smells like a baka.", "USER smells like a twat waffle.", "USER is a stinky poop head", "USER\'s mom doesn\'t love them.", "USER is a fake ass bitch.", "USER is more disapointing than an unsalted pretzel", "Light travels faster than sound which is why USER seemed bright unit they spoke.", "USER has no bitches.", "USER is maidenless."]
+insults = ["USER has a brain as smooth as a bowl.", "USER has no brain-wrinkles", "USER has a goldfish brain!", "USER sucks!","USER is a lemon stealing whore.", "USER must have been born on a highway. That\'s where most accidents happen after all.", "USER shouldn\'t be ashamed of who they are; that\'s their parent\'s job.","USER programs in camelCase :)",  "USER has a tiny pp.", "USER is short.", "USER sucks almost as much as Chavez.", "If I were USER, I'd have depression too.", "USER is an airhead bro.", "USER smells like a baka.", "USER smells like a twat waffle.", "USER is a stinky poop head", "USER\'s mom doesn\'t love them.", "USER is a fake ass bitch.", "USER is more disapointing than an unsalted pretzel", "Light travels faster than sound which is why USER seemed bright unit they spoke.", "USER has no bitches.", "USER is maidenless."]
 
 # client events
 # verify connection
