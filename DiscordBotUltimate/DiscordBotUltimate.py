@@ -15,6 +15,7 @@
 
 # Requires discord.py and python-dotenv
 from typing import List
+from discord.message import Message
 from dotenv import load_dotenv
 import os
 import discord 
@@ -30,6 +31,9 @@ VOICE_CHANNEL_ID_STR = os.getenv("VOICE_CHANNEL_ID")
 CHAVEZ_ID = int(CHAVEZ_ID_STR)
 GENERAL_CHANNEL_ID = int(GENERAL_CHANNEL_ID_STR)
 
+# public minecraft server url
+MINECRAFT_SERVER = "steve.smash.casa"
+
 
 print("secret loaded!")
 
@@ -37,7 +41,7 @@ print("secret loaded!")
 client = discord.Client()
 
 # insult list
-insults = ["USER has a brain as smooth as a bowl.", "USER has no brain-wrinkles", "USER has a goldfish brain!", "USER sucks!","USER is a lemon stealing whore.", "USER must have been born on a highway. That\'s where most accidents happen after all.", "USER shouldn\'t be ashamed of who they are; that\'s their parent\'s job.","USER programs in camelCase :)",  "USER has a tiny pp.", "USER is short.", "USER sucks almost as much as Chavez.", "If I were USER, I'd have depression too.", "USER is an airhead bro.", "USER smells like a baka.", "USER smells like a twat waffle.", "USER is a stinky poop head", "USER\'s mom doesn\'t love them.", "USER is a fake ass bitch.", "USER is more disapointing than an unsalted pretzel", "Light travels faster than sound which is why USER seemed bright unit they spoke.", "USER has no bitches.", "USER is maidenless."]
+insults = ["USER has a brain as smooth as a bowl.", "USER has no brain-wrinkles", "USER has a goldfish brain!", "USER sucks!","USER is a lemon stealing whore.", "USER must have been born on a highway. That\'s where most accidents happen after all.", "USER shouldn\'t be ashamed of who they are; that\'s their parent\'s job.","USER programs in camelCase :)",  "USER has a tiny pp.", "USER is short.", "USER sucks almost as much as Chavez.", "If I were USER, I'd have depression too.", "USER is an airhead bro.", "USER smells like a baka.", "USER smells like a twat waffle.", "USER is a stinky poop head", "USER\'s mom doesn\'t love them.", "USER is a fake ass bitch.", "USER is more disapointing than an unsalted pretzel", "Light travels faster than sound which is why USER seemed bright until they spoke.", "USER has no bitches.", "USER is maidenless."]
 
 # client events
 # verify connection
@@ -62,7 +66,7 @@ async def on_message(message):
     if message.author == client.user:
         return
     # make sure it's the command
-    if message.content.startswith("!insult") or message.content.startswith("!Insult"):
+    if message.content.startswith("!insult"):
         # common commands->
         # select insult
         user_insult = random.choice(insults)
@@ -86,6 +90,18 @@ async def on_message(message):
             user_insult = user_insult.replace("USER", user_name)
             # send the payload bois
             await channel_in.send(user_insult)
+        # make sure its the command
+    if message.content.startswith("!joinMinecraft"):
+        # grab role name
+        role = discord.utils.get(message.guild.roles, name="minecraft")
+        # add user to role
+        await message.author.add_roles(role)
+        channel_in = client.get_channel(message.channel.id)
+        await channel_in.send("I sent you a DM with the server info, please don't share! :)")
+        # message user minecraft url
+        await message.author.send(MINECRAFT_SERVER)
+        await message.author.send("Please don't share this info!")
+        await message.author.send("You'll need to install Revelations V3.40 from curseforge to play ;)")
 
 # welcome new members
 @client.event
